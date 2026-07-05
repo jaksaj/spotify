@@ -93,6 +93,20 @@ def refresh_access_token(client_id, client_secret, refresh_token):
         print(f"Network error refreshing access token: {e}", file=sys.stderr)
         return None
 
+def parse_release_year(track):
+    """
+    Extracts a release year from the Spotify album release date when available.
+    """
+    album = track.get("album", {}) if isinstance(track, dict) else {}
+    release_date = album.get("release_date", "")
+    if not release_date:
+        return None
+
+    try:
+        return int(str(release_date)[:4])
+    except (TypeError, ValueError):
+        return None
+
 def get_user_tokens_via_browser(client_id, client_secret):
     """
     Initiates User Authorization Code Flow via the default web browser.
@@ -164,15 +178,26 @@ def main():
     load_local_env()
     
     client_id = os.environ.get("SPOTIFY_CLIENT_ID")
+    if client_id:
+        client_id = client_id.strip().strip('"').strip("'")
+        
     client_secret = os.environ.get("SPOTIFY_CLIENT_SECRET")
+    if client_secret:
+        client_secret = client_secret.strip().strip('"').strip("'")
+        
     refresh_token = os.environ.get("SPOTIFY_REFRESH_TOKEN")
-    
+    if refresh_token:
+        refresh_token = refresh_token.strip().strip('"').strip("'")
+        
+    playlist_id = os.environ.get("PLAYLIST_ID", "6mVP7PtJREfN6bOAIOErtI")
+    if playlist_id:
+        playlist_id = playlist_id.strip().strip('"').strip("'")
+        
     if not client_id or not client_secret:
         print("CRITICAL ERROR: SPOTIFY_CLIENT_ID or SPOTIFY_CLIENT_SECRET is missing.", file=sys.stderr)
         print("Please ensure they are set in your environment variables or local .env file.", file=sys.stderr)
         sys.exit(1)
         
-    playlist_id = os.environ.get("PLAYLIST_ID", "6mVP7PtJREfN6bOAIOErtI")
     access_token = None
     
     # 2. Authenticate
@@ -233,6 +258,11 @@ def main():
                 if images:
                     smallest_img = min(images, key=lambda img: img.get("width", 9999) or 9999)
                     album_art_url = smallest_img.get("url", "")
+
+                # Spotify album release metadata for era filtering and averages
+                album = track.get("album", {})
+                release_date = album.get("release_date", "")
+                release_year = parse_release_year(track)
                 
                 # Added date formatted as YYYY-MM-DD
                 added_at_raw = item.get("added_at", "")
@@ -242,7 +272,9 @@ def main():
                     "title": title,
                     "artist": artist_name,
                     "album_art": album_art_url,
-                    "added_at": added_at_formatted
+                    "added_at": added_at_formatted,
+                    "release_date": release_date,
+                    "release_year": release_year
                 })
                 
             url = data.get("next")
