@@ -263,6 +263,7 @@ def main():
                 album = track.get("album", {})
                 release_date = album.get("release_date", "")
                 release_year = parse_release_year(track)
+                spotify_url = track.get("external_urls", {}).get("spotify", "")
                 
                 # Added date formatted as YYYY-MM-DD
                 added_at_raw = item.get("added_at", "")
@@ -272,6 +273,7 @@ def main():
                     "title": title,
                     "artist": artist_name,
                     "album_art": album_art_url,
+                    "spotify_url": spotify_url,
                     "added_at": added_at_formatted,
                     "release_date": release_date,
                     "release_year": release_year
