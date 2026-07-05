@@ -13,7 +13,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <!-- Link to visual styles -->
-  <link rel="stylesheet" href="styles.css?v=20260705-3">
+  <link rel="stylesheet" href="styles.css?v=20260705-4">
 </head>
 <body>
 
@@ -127,10 +127,9 @@
                 <path d="M10 4a6 6 0 1 0 3.88 10.61l4.25 4.25 1.41-1.41-4.25-4.25A6 6 0 0 0 10 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
               </svg>
             </span>
-            <input id="artist-filter-input" class="search-input" list="artist-options" type="text" placeholder="Filter by artist" autocomplete="off">
+            <input id="artist-filter-input" class="search-input" type="text" placeholder="Filter by artist" autocomplete="off">
+            <div id="artist-suggestions" class="suggestions-panel" hidden></div>
           </div>
-
-          <datalist id="artist-options"></datalist>
 
           <!-- Song Filter Input -->
           <div class="search-container control-field">
@@ -139,10 +138,9 @@
                 <path d="M9 3a6 6 0 1 0 3.88 10.61l4.25 4.25 1.41-1.41-4.25-4.25A6 6 0 0 0 9 3zm0 2a4 4 0 1 1 0 8 4 4 0 1 1 0-8z"/>
               </svg>
             </span>
-            <input id="song-filter-input" class="search-input" list="song-options" type="text" placeholder="Filter by song title" autocomplete="off">
+            <input id="song-filter-input" class="search-input" type="text" placeholder="Filter by song title" autocomplete="off">
+            <div id="song-suggestions" class="suggestions-panel" hidden></div>
           </div>
-
-          <datalist id="song-options"></datalist>
 
           <!-- Language Filter Dropdown -->
           <select id="language-filter-dropdown" class="search-input" style="padding-left: 1.2rem; padding-right: 1.2rem; cursor: pointer; width: 160px;">
@@ -195,6 +193,6 @@
   </footer>
 
   <!-- Link to application logic -->
-  <script src="script.js?v=20260705-3" defer></script>
+  <script src="script.js?v=20260705-4" defer></script>
 </body>
 </html>

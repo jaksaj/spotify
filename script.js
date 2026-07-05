@@ -78,7 +78,7 @@ const statSongsProgress = document.getElementById("stat-songs-progress");
 const statPercentageText = document.getElementById("stat-percentage-text");
 const topArtistsList = document.getElementById("top-artists-list");
 
-const BUILD_VERSION = "20260705-3";
+const BUILD_VERSION = "20260705-4";
 
 // --------------------------------------------------
 // APPLICATION INITIALIZATION
@@ -104,21 +104,109 @@ document.addEventListener("DOMContentLoaded", () => {
 function initEventListeners() {
   const artistInput = document.getElementById("artist-filter-input");
   const artistSelect = document.getElementById("artist-filter-dropdown");
+  const artistSuggestions = document.getElementById("artist-suggestions");
   const songInput = document.getElementById("song-filter-input");
+  const songSuggestions = document.getElementById("song-suggestions");
   const languageSelect = document.getElementById("language-filter-dropdown");
   const clearBtn = document.getElementById("clear-filters-btn");
+
+  const closeSuggestionPanels = () => {
+    if (artistSuggestions) {
+      artistSuggestions.hidden = true;
+    }
+    if (songSuggestions) {
+      songSuggestions.hidden = true;
+    }
+  };
+
+  const renderSuggestionPanel = (panel, items, onPick) => {
+    if (!panel) return;
+
+    panel.innerHTML = "";
+    if (!items.length) {
+      const emptyState = document.createElement("div");
+      emptyState.className = "suggestion-empty";
+      emptyState.textContent = "No matches";
+      panel.appendChild(emptyState);
+      panel.hidden = false;
+      return;
+    }
+
+    items.forEach(item => {
+      const optionButton = document.createElement("button");
+      optionButton.type = "button";
+      optionButton.className = "suggestion-item";
+      optionButton.textContent = item;
+      optionButton.addEventListener("mousedown", (event) => {
+        event.preventDefault();
+        onPick(item);
+        panel.hidden = true;
+      });
+      panel.appendChild(optionButton);
+    });
+
+    panel.hidden = false;
+  };
+
+  const getArtistMatches = (query) => {
+    const artistValues = Array.from(new Set(
+      playlistData.flatMap(track => track.artist ? track.artist.split(",").map(a => a.trim()) : [])
+    ))
+      .filter(artist => artist && artist !== "Unknown Artist")
+      .sort((a, b) => a.localeCompare(b));
+
+    if (!query) return artistValues;
+
+    const normalizedQuery = normalizeText(query);
+    return artistValues.filter(artist => normalizeText(artist).includes(normalizedQuery));
+  };
+
+  const getSongMatches = (query) => {
+    const songValues = Array.from(new Set(
+      playlistData.map(track => track.title).filter(Boolean).map(title => title.trim())
+    )).sort((a, b) => a.localeCompare(b));
+
+    if (!query) return songValues;
+
+    const normalizedQuery = normalizeText(query);
+    return songValues.filter(title => normalizeText(title).includes(normalizedQuery));
+  };
+
+  const updateArtistSuggestions = () => {
+    if (!artistInput || !artistSuggestions) return;
+    const matches = getArtistMatches(artistInput.value.trim());
+    renderSuggestionPanel(artistSuggestions, matches, value => {
+      artistInput.value = value;
+      activeArtistFilter = value || null;
+      applyFilters();
+    });
+  };
+
+  const updateSongSuggestions = () => {
+    if (!songInput || !songSuggestions) return;
+    const matches = getSongMatches(songInput.value.trim());
+    renderSuggestionPanel(songSuggestions, matches, value => {
+      songInput.value = value;
+      activeSongFilter = value.trim();
+      applyFilters();
+    });
+  };
 
   // Artist typed filter or legacy dropdown fallback
   if (artistInput) {
     artistInput.addEventListener("input", (e) => {
       activeArtistFilter = e.target.value.trim() || null;
+      updateArtistSuggestions();
       applyFilters();
     });
 
     artistInput.addEventListener("change", (e) => {
       activeArtistFilter = e.target.value.trim() || null;
+      updateArtistSuggestions();
       applyFilters();
     });
+
+    artistInput.addEventListener("focus", updateArtistSuggestions);
   } else if (artistSelect) {
     artistSelect.addEventListener("change", (e) => {
       activeArtistFilter = e.target.value === "all" ? null : e.target.value;
@@ -130,13 +218,17 @@ function initEventListeners() {
   if (songInput) {
     songInput.addEventListener("input", (e) => {
       activeSongFilter = e.target.value.trim();
+      updateSongSuggestions();
       applyFilters();
     });
 
     songInput.addEventListener("change", (e) => {
       activeSongFilter = e.target.value.trim();
+      updateSongSuggestions();
       applyFilters();
     });
+
+    songInput.addEventListener("focus", updateSongSuggestions);
   }
 
   // Language dropdown filter
@@ -164,8 +256,20 @@ function initEventListeners() {
     if (languageSelect) {
       languageSelect.value = "all";
     }
+
+    closeSuggestionPanels();
     
     applyFilters();
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target instanceof Node ? event.target : null;
+    const insideArtistField = Boolean(target && artistSuggestions && (artistSuggestions.contains(target) || artistInput?.contains(target)));
+    const insideSongField = Boolean(target && songSuggestions && (songSuggestions.contains(target) || songInput?.contains(target)));
+
+    if (!insideArtistField && !insideSongField) {
+      closeSuggestionPanels();
+    }
   });
 
   // View toggles
