@@ -216,7 +216,7 @@ def main():
             items = data.get("items", [])
             
             for item in items:
-                track = item.get("track")
+                track = item.get("track") or item.get("item")
                 if not track:
                     continue
                 
