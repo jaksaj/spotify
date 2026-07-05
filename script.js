@@ -78,7 +78,7 @@ const statSongsProgress = document.getElementById("stat-songs-progress");
 const statPercentageText = document.getElementById("stat-percentage-text");
 const topArtistsList = document.getElementById("top-artists-list");
 
-const BUILD_VERSION = "20260705-2";
+const BUILD_VERSION = "20260705-3";
 
 // --------------------------------------------------
 // APPLICATION INITIALIZATION
