@@ -283,17 +283,14 @@ def main():
             if url:
                 print(f"Fetched {len(tracks_data)} tracks so far. Paginating...")
                 
-        # 4. Handle bulk addition safety fallback
+        # 4. Normalize calendar dates so the playlist always maps to Jan 1 onward.
         if tracks_data:
-            unique_dates = set(t["added_at"] for t in tracks_data if t["added_at"])
-            if len(unique_dates) <= 3 and len(tracks_data) > 5:
-                print("\n[INFO] Bulk-addition detected: All tracks were added on the same date.")
-                print("Distributing tracks sequentially starting from 2026-01-01 to populate the calendar grid...")
-                
-                start_date = datetime.date(2026, 1, 1)
-                for i, track in enumerate(tracks_data):
-                    assigned_date = start_date + datetime.timedelta(days=i)
-                    track["added_at"] = assigned_date.strftime("%Y-%m-%d")
+            print("\n[INFO] Reassigning playlist items sequentially from 2026-01-01 onward...")
+
+            start_date = datetime.date(2026, 1, 1)
+            for i, track in enumerate(tracks_data):
+                assigned_date = start_date + datetime.timedelta(days=i)
+                track["added_at"] = assigned_date.strftime("%Y-%m-%d")
                     
         # 5. Output directly into playlist.json
         output_file = "playlist.json"

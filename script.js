@@ -77,6 +77,8 @@ const statSongsProgress = document.getElementById("stat-songs-progress");
 const statPercentageText = document.getElementById("stat-percentage-text");
 const topArtistsList = document.getElementById("top-artists-list");
 
+const BUILD_VERSION = "20260705-2";
+
 // --------------------------------------------------
 // APPLICATION INITIALIZATION
 // --------------------------------------------------
@@ -177,7 +179,7 @@ function initEventListeners() {
 // --------------------------------------------------
 async function loadPlaylistData() {
   try {
-    const response = await fetch("playlist.json");
+    const response = await fetch(`playlist.json?v=${BUILD_VERSION}`, { cache: "no-store" });
     if (!response.ok) {
       throw new Error("Could not find playlist.json");
     }
