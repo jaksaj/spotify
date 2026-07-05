@@ -33,6 +33,7 @@ jobs:
         SPOTIFY_CLIENT_ID: ${{ secrets.SPOTIFY_CLIENT_ID }}
         SPOTIFY_CLIENT_SECRET: ${{ secrets.SPOTIFY_CLIENT_SECRET }}
         SPOTIFY_REFRESH_TOKEN: ${{ secrets.SPOTIFY_REFRESH_TOKEN }}
+        PLAYLIST_ID: ${{ secrets.PLAYLIST_ID }}
       run: python data_fetch.py
 
     - name: Commit and Push Changes
