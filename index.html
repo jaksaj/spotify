@@ -80,6 +80,14 @@
           </div>
         </div>
 
+        <!-- STAT: DUPLICATES -->
+        <div class="stat-card" id="duplicates-card">
+          <span class="stat-label">Duplicates</span>
+          <div class="top-artists-list" id="duplicates-list">
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">Checking for duplicates...</div>
+          </div>
+        </div>
+
         <!-- STAT: SONG ERAS -->
         <div class="stat-card">
           <span class="stat-label">Song Eras</span>
@@ -112,10 +120,29 @@
         </div>
         
         <div class="controls-wrapper">
-          <!-- Artist Filter Dropdown -->
-          <select id="artist-filter-dropdown" class="search-input" style="padding-left: 1.2rem; padding-right: 1.2rem; cursor: pointer; width: 180px;">
-            <option value="all">All Artists</option>
-          </select>
+          <!-- Artist Filter Input -->
+          <div class="search-container control-field">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M10 4a6 6 0 1 0 3.88 10.61l4.25 4.25 1.41-1.41-4.25-4.25A6 6 0 0 0 10 4zm0 2a4 4 0 1 1 0 8 4 4 0 0 1 0-8z"/>
+              </svg>
+            </span>
+            <input id="artist-filter-input" class="search-input" list="artist-options" type="text" placeholder="Filter by artist" autocomplete="off">
+          </div>
+
+          <datalist id="artist-options"></datalist>
+
+          <!-- Song Filter Input -->
+          <div class="search-container control-field">
+            <span class="search-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M9 3a6 6 0 1 0 3.88 10.61l4.25 4.25 1.41-1.41-4.25-4.25A6 6 0 0 0 9 3zm0 2a4 4 0 1 1 0 8 4 4 0 1 1 0-8z"/>
+              </svg>
+            </span>
+            <input id="song-filter-input" class="search-input" list="song-options" type="text" placeholder="Filter by song title" autocomplete="off">
+          </div>
+
+          <datalist id="song-options"></datalist>
 
           <!-- Language Filter Dropdown -->
           <select id="language-filter-dropdown" class="search-input" style="padding-left: 1.2rem; padding-right: 1.2rem; cursor: pointer; width: 160px;">

@@ -264,6 +264,12 @@ main.main-content {
   color: var(--text-secondary);
 }
 
+.stat-muted-line {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.35;
+}
+
 /* Top Artists List */
 .top-artists-list {
   display: flex;
@@ -359,6 +365,10 @@ header.content-header {
   flex-wrap: wrap;
 }
 
+.control-field {
+  width: 260px;
+}
+
 /* Styled Search Input */
 .search-container {
   position: relative;
@@ -381,6 +391,14 @@ header.content-header {
   border-color: var(--spotify-green);
   box-shadow: 0 0 10px rgba(29, 185, 84, 0.2);
   width: 300px;
+}
+
+.control-field .search-input {
+  width: 100%;
+}
+
+.control-field .search-input:focus {
+  width: 100%;
 }
 
 .search-icon {

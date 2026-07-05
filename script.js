@@ -38,6 +38,7 @@ let showFullYear = false;
 // Unified Filters State
 let activeEraFilter = null;
 let activeArtistFilter = null;
+let activeSongFilter = "";
 let activeLanguageFilter = "all";
 
 const MONTHS = [
@@ -101,13 +102,30 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function initEventListeners() {
-  const artistSelect = document.getElementById("artist-filter-dropdown");
+  const artistInput = document.getElementById("artist-filter-input");
+  const songInput = document.getElementById("song-filter-input");
   const languageSelect = document.getElementById("language-filter-dropdown");
   const clearBtn = document.getElementById("clear-filters-btn");
 
-  // Artist dropdown filter
-  artistSelect.addEventListener("change", (e) => {
-    activeArtistFilter = e.target.value === "all" ? null : e.target.value;
+  // Artist typed filter
+  artistInput.addEventListener("input", (e) => {
+    activeArtistFilter = e.target.value.trim() || null;
+    applyFilters();
+  });
+
+  artistInput.addEventListener("change", (e) => {
+    activeArtistFilter = e.target.value.trim() || null;
+    applyFilters();
+  });
+
+  // Song typed filter
+  songInput.addEventListener("input", (e) => {
+    activeSongFilter = e.target.value.trim();
+    applyFilters();
+  });
+
+  songInput.addEventListener("change", (e) => {
+    activeSongFilter = e.target.value.trim();
     applyFilters();
   });
 
@@ -121,9 +139,11 @@ function initEventListeners() {
   clearBtn.addEventListener("click", () => {
     activeEraFilter = null;
     activeArtistFilter = null;
+    activeSongFilter = "";
     activeLanguageFilter = "all";
     
-    artistSelect.value = "all";
+    artistInput.value = "";
+    songInput.value = "";
     languageSelect.value = "all";
     
     applyFilters();
@@ -200,7 +220,8 @@ async function loadPlaylistData() {
   }
   
   calculateStats();
-  populateArtistDropdown();
+  populateArtistSuggestions();
+  populateSongSuggestions();
   renderCalendar();
 }
 
@@ -255,6 +276,45 @@ function calculateStats() {
       });
       topArtistsList.appendChild(row);
     });
+  }
+
+  // 3b. Duplicate Songs
+  const duplicatesList = document.getElementById("duplicates-list");
+  if (duplicatesList) {
+    const duplicateMap = {};
+    playlistData.forEach(track => {
+      const title = normalizeText(track.title);
+      const artist = normalizeText(track.artist);
+      if (!title || !artist) return;
+
+      const key = `${title}__${artist}`;
+      if (!duplicateMap[key]) {
+        duplicateMap[key] = { title: track.title, artist: track.artist, count: 0 };
+      }
+      duplicateMap[key].count += 1;
+    });
+
+    const duplicateEntries = Object.values(duplicateMap)
+      .filter(entry => entry.count > 1)
+      .sort((a, b) => b.count - a.count || a.title.localeCompare(b.title));
+
+    duplicatesList.innerHTML = "";
+    if (duplicateEntries.length === 0) {
+      duplicatesList.innerHTML = `<div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">No duplicates found</div>`;
+    } else {
+      duplicateEntries.forEach(entry => {
+        const row = document.createElement("div");
+        row.className = "artist-row";
+        row.innerHTML = `
+          <div class="artist-info">
+            <span class="artist-rank" style="color: #f7df9d;">×${entry.count}</span>
+            <span class="artist-name" title="${entry.title} — ${entry.artist}">${entry.title}</span>
+          </div>
+          <span class="artist-count" title="${entry.artist}">${entry.artist}</span>
+        `;
+        duplicatesList.appendChild(row);
+      });
+    }
   }
 
   // 4. Genres stats (conditional support if genres array exists)
@@ -374,6 +434,14 @@ function calculateElapsedDays2026(targetDate) {
   return Math.floor((end - start) / oneDay) + 1;
 }
 
+function normalizeText(value) {
+  return (value || "")
+    .toString()
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+}
+
 // --------------------------------------------------
 // CALENDAR GENERATOR
 // --------------------------------------------------
@@ -481,12 +549,12 @@ function renderCalendar() {
 // --------------------------------------------------
 // DYNAMIC FILTERS DATA INJECTORS
 // --------------------------------------------------
-function populateArtistDropdown() {
-  const artistSelect = document.getElementById("artist-filter-dropdown");
-  if (!artistSelect) return;
-  
-  artistSelect.innerHTML = `<option value="all">All Artists</option>`;
-  
+function populateArtistSuggestions() {
+  const artistList = document.getElementById("artist-options");
+  if (!artistList) return;
+
+  artistList.innerHTML = "";
+
   const artistsSet = new Set();
   playlistData.forEach(track => {
     if (track.artist) {
@@ -499,10 +567,31 @@ function populateArtistDropdown() {
     if (artist && artist !== "Unknown Artist") {
       const opt = document.createElement("option");
       opt.value = artist;
-      opt.innerText = artist;
-      artistSelect.appendChild(opt);
+      artistList.appendChild(opt);
     }
   });
+}
+
+function populateSongSuggestions() {
+  const songList = document.getElementById("song-options");
+  if (!songList) return;
+
+  songList.innerHTML = "";
+
+  const titlesSet = new Set();
+  playlistData.forEach(track => {
+    if (track.title) {
+      titlesSet.add(track.title.trim());
+    }
+  });
+
+  Array.from(titlesSet)
+    .sort((a, b) => a.localeCompare(b))
+    .forEach(title => {
+      const opt = document.createElement("option");
+      opt.value = title;
+      songList.appendChild(opt);
+    });
 }
 
 // Heuristic Language Guesser (analyzes patterns in character set and vocabulary)
@@ -530,9 +619,14 @@ function applyFilters() {
   const activeCells = document.querySelectorAll(".day-cell.has-song");
   
   // Sync dropdown values
-  const artistSelect = document.getElementById("artist-filter-dropdown");
-  if (artistSelect) {
-    artistSelect.value = activeArtistFilter || "all";
+  const artistInput = document.getElementById("artist-filter-input");
+  if (artistInput) {
+    artistInput.value = activeArtistFilter || "";
+  }
+
+  const songInput = document.getElementById("song-filter-input");
+  if (songInput) {
+    songInput.value = activeSongFilter;
   }
   
   const languageSelect = document.getElementById("language-filter-dropdown");
@@ -562,7 +656,13 @@ function applyFilters() {
     // 2. Artist Match
     let artistMatch = true;
     if (activeArtistFilter) {
-      artistMatch = track.artist.toLowerCase().includes(activeArtistFilter.toLowerCase());
+      artistMatch = normalizeText(track.artist).includes(normalizeText(activeArtistFilter));
+    }
+
+    // 2b. Song title Match
+    let titleMatch = true;
+    if (activeSongFilter) {
+      titleMatch = normalizeText(track.title).includes(normalizeText(activeSongFilter));
     }
     
     // 3. Language Match
@@ -576,9 +676,9 @@ function applyFilters() {
     }
     
     // Apply dimming / highlighting states
-    if (eraMatch && artistMatch && languageMatch) {
+    if (eraMatch && artistMatch && titleMatch && languageMatch) {
       cell.classList.remove("dimmed");
-      if (activeEraFilter || activeArtistFilter || activeLanguageFilter !== "all") {
+      if (activeEraFilter || activeArtistFilter || activeSongFilter || activeLanguageFilter !== "all") {
         cell.classList.add("highlighted");
       } else {
         cell.classList.remove("highlighted");
@@ -614,7 +714,7 @@ function updateSidebarFilterStyles() {
   // Toggle Clear Filters Button
   const clearBtn = document.getElementById("clear-filters-btn");
   if (clearBtn) {
-    if (activeEraFilter || activeArtistFilter || activeLanguageFilter !== "all") {
+    if (activeEraFilter || activeArtistFilter || activeSongFilter || activeLanguageFilter !== "all") {
       clearBtn.style.display = "inline-block";
     } else {
       clearBtn.style.display = "none";
