@@ -1645,5 +1645,32 @@
     "added_at": "2026-07-02",
     "release_date": "2012-11-30",
     "release_year": 2012
+  },
+  {
+    "title": "Kralj Izgubljenih Stvari",
+    "artist": "Sasa Matic",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851ffa65294cf33bda4f9741bac",
+    "spotify_url": "https://open.spotify.com/track/1tJhOpyJw2ZCplVpAsDk15",
+    "added_at": "2026-07-05",
+    "release_date": "2005",
+    "release_year": 2005
+  },
+  {
+    "title": "A Ti Si Izabrala Njega",
+    "artist": "Sasa Matic",
+    "album_art": "https://i.scdn.co/image/ab67616d000048515034415094d4ef7fb09439db",
+    "spotify_url": "https://open.spotify.com/track/6aTQ8gBfVABnOyrQFjQSF5",
+    "added_at": "2026-07-05",
+    "release_date": "2001",
+    "release_year": 2001
+  },
+  {
+    "title": "Minut Ljubavi",
+    "artist": "Tanja Savic",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485100f0cb5b8d9f994e76a6e19c",
+    "spotify_url": "https://open.spotify.com/track/0Tfo108r37s8F7CDY5z29R",
+    "added_at": "2026-07-05",
+    "release_date": "2005",
+    "release_year": 2005
   }
 ]
