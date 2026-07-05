@@ -454,10 +454,21 @@ function renderCalendar() {
         overlay.className = "cell-overlay";
         dayCell.appendChild(overlay);
 
-        // Small indicator dot
-        const dot = document.createElement("div");
-        dot.className = "cell-music-indicator";
-        dayCell.appendChild(dot);
+        // Spotify link icon
+        const spotifyLink = document.createElement("a");
+        spotifyLink.className = "cell-spotify-link";
+        spotifyLink.href = track.spotify_url || "#";
+        spotifyLink.target = "_blank";
+        spotifyLink.rel = "noopener noreferrer";
+        spotifyLink.setAttribute("aria-label", `Open ${track.title} on Spotify`);
+        spotifyLink.title = "Open on Spotify";
+        spotifyLink.innerHTML = `
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 2a10 10 0 1 0 10 10A10.01 10.01 0 0 0 12 2zm3.78 10.95-5.2 3.09a.75.75 0 0 1-1.13-.64V8.6a.75.75 0 0 1 1.13-.64l5.2 3.09a.75.75 0 0 1 0 1.28z"/>
+          </svg>
+        `;
+        spotifyLink.addEventListener("click", (e) => e.stopPropagation());
+        dayCell.appendChild(spotifyLink);
 
         // Hover actions
         dayCell.addEventListener("mouseenter", () => showTooltip(track, dateStr));
@@ -466,7 +477,7 @@ function renderCalendar() {
         // Click to open on Spotify
         if (track.spotify_url) {
           dayCell.addEventListener("click", () => {
-            window.open(track.spotify_url, "_blank");
+            openSpotifyTrack(track.spotify_url);
           });
         }
       } else {
@@ -673,4 +684,14 @@ function formatDateFriendly(dateStr) {
   if (parts.length !== 3) return dateStr;
   const dateObj = new Date(parts[0], parts[1] - 1, parts[2]);
   return dateObj.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+}
+
+function openSpotifyTrack(url) {
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
 }
