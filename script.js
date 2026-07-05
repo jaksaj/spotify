@@ -195,13 +195,13 @@ function initEventListeners() {
   // Artist typed filter or legacy dropdown fallback
   if (artistInput) {
     artistInput.addEventListener("input", (e) => {
-      activeArtistFilter = e.target.value.trim() || null;
+      activeArtistFilter = e.target.value;
       updateArtistSuggestions();
       applyFilters();
     });
 
     artistInput.addEventListener("change", (e) => {
-      activeArtistFilter = e.target.value.trim() || null;
+      activeArtistFilter = e.target.value;
       updateArtistSuggestions();
       applyFilters();
     });
@@ -217,13 +217,13 @@ function initEventListeners() {
   // Song typed filter
   if (songInput) {
     songInput.addEventListener("input", (e) => {
-      activeSongFilter = e.target.value.trim();
+      activeSongFilter = e.target.value;
       updateSongSuggestions();
       applyFilters();
     });
 
     songInput.addEventListener("change", (e) => {
-      activeSongFilter = e.target.value.trim();
+      activeSongFilter = e.target.value;
       updateSongSuggestions();
       applyFilters();
     });
@@ -744,16 +744,11 @@ function applyFilters() {
   // Sync dropdown values
   const artistInput = document.getElementById("artist-filter-input");
   const artistSelect = document.getElementById("artist-filter-dropdown");
-  if (artistInput) {
-    artistInput.value = activeArtistFilter || "";
-  } else if (artistSelect) {
+  if (!artistInput && artistSelect) {
     artistSelect.value = activeArtistFilter || "all";
   }
 
   const songInput = document.getElementById("song-filter-input");
-  if (songInput) {
-    songInput.value = activeSongFilter;
-  }
   
   const languageSelect = document.getElementById("language-filter-dropdown");
   if (languageSelect) {
@@ -781,13 +776,13 @@ function applyFilters() {
     
     // 2. Artist Match
     let artistMatch = true;
-    if (activeArtistFilter) {
+    if (activeArtistFilter && activeArtistFilter.trim()) {
       artistMatch = normalizeText(track.artist).includes(normalizeText(activeArtistFilter));
     }
 
     // 2b. Song title Match
     let titleMatch = true;
-    if (activeSongFilter) {
+    if (activeSongFilter && activeSongFilter.trim()) {
       titleMatch = normalizeText(track.title).includes(normalizeText(activeSongFilter));
     }
     
@@ -804,7 +799,7 @@ function applyFilters() {
     // Apply dimming / highlighting states
     if (eraMatch && artistMatch && titleMatch && languageMatch) {
       cell.classList.remove("dimmed");
-      if (activeEraFilter || activeArtistFilter || activeSongFilter || activeLanguageFilter !== "all") {
+      if (activeEraFilter || (activeArtistFilter && activeArtistFilter.trim()) || (activeSongFilter && activeSongFilter.trim()) || activeLanguageFilter !== "all") {
         cell.classList.add("highlighted");
       } else {
         cell.classList.remove("highlighted");
@@ -840,7 +835,7 @@ function updateSidebarFilterStyles() {
   // Toggle Clear Filters Button
   const clearBtn = document.getElementById("clear-filters-btn");
   if (clearBtn) {
-    if (activeEraFilter || activeArtistFilter || activeSongFilter || activeLanguageFilter !== "all") {
+    if (activeEraFilter || (activeArtistFilter && activeArtistFilter.trim()) || (activeSongFilter && activeSongFilter.trim()) || activeLanguageFilter !== "all") {
       clearBtn.style.display = "inline-block";
     } else {
       clearBtn.style.display = "none";
