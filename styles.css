@@ -558,44 +558,6 @@ header.content-header {
   opacity: 0.9;
 }
 
-/* Indicator dot showing song presence */
-.cell-spotify-link {
-  position: absolute;
-  bottom: 6px;
-  right: 6px;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(29, 185, 84, 0.18);
-  border: 1px solid rgba(29, 185, 84, 0.55);
-  color: #ffffff;
-  text-decoration: none;
-  z-index: 3;
-  box-shadow: 0 0 8px rgba(29, 185, 84, 0.35);
-  backdrop-filter: blur(4px);
-  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
-}
-
-.cell-spotify-link svg {
-  width: 12px;
-  height: 12px;
-  fill: currentColor;
-}
-
-.day-cell.has-song:hover .cell-spotify-link {
-  transform: scale(1.08);
-  background: rgba(29, 185, 84, 0.28);
-  box-shadow: 0 0 10px rgba(29, 185, 84, 0.55);
-}
-
-.cell-spotify-link:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: 2px;
-}
-
 /* Cell Hover States */
 .day-cell.has-song:hover {
   transform: scale(1.18);
