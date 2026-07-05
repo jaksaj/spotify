@@ -103,31 +103,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function initEventListeners() {
   const artistInput = document.getElementById("artist-filter-input");
+  const artistSelect = document.getElementById("artist-filter-dropdown");
   const songInput = document.getElementById("song-filter-input");
   const languageSelect = document.getElementById("language-filter-dropdown");
   const clearBtn = document.getElementById("clear-filters-btn");
 
-  // Artist typed filter
-  artistInput.addEventListener("input", (e) => {
-    activeArtistFilter = e.target.value.trim() || null;
-    applyFilters();
-  });
+  // Artist typed filter or legacy dropdown fallback
+  if (artistInput) {
+    artistInput.addEventListener("input", (e) => {
+      activeArtistFilter = e.target.value.trim() || null;
+      applyFilters();
+    });
 
-  artistInput.addEventListener("change", (e) => {
-    activeArtistFilter = e.target.value.trim() || null;
-    applyFilters();
-  });
+    artistInput.addEventListener("change", (e) => {
+      activeArtistFilter = e.target.value.trim() || null;
+      applyFilters();
+    });
+  } else if (artistSelect) {
+    artistSelect.addEventListener("change", (e) => {
+      activeArtistFilter = e.target.value === "all" ? null : e.target.value;
+      applyFilters();
+    });
+  }
 
   // Song typed filter
-  songInput.addEventListener("input", (e) => {
-    activeSongFilter = e.target.value.trim();
-    applyFilters();
-  });
+  if (songInput) {
+    songInput.addEventListener("input", (e) => {
+      activeSongFilter = e.target.value.trim();
+      applyFilters();
+    });
 
-  songInput.addEventListener("change", (e) => {
-    activeSongFilter = e.target.value.trim();
-    applyFilters();
-  });
+    songInput.addEventListener("change", (e) => {
+      activeSongFilter = e.target.value.trim();
+      applyFilters();
+    });
+  }
 
   // Language dropdown filter
   languageSelect.addEventListener("change", (e) => {
@@ -142,9 +152,18 @@ function initEventListeners() {
     activeSongFilter = "";
     activeLanguageFilter = "all";
     
-    artistInput.value = "";
-    songInput.value = "";
-    languageSelect.value = "all";
+    if (artistInput) {
+      artistInput.value = "";
+    }
+    if (artistSelect) {
+      artistSelect.value = "all";
+    }
+    if (songInput) {
+      songInput.value = "";
+    }
+    if (languageSelect) {
+      languageSelect.value = "all";
+    }
     
     applyFilters();
   });
@@ -620,8 +639,11 @@ function applyFilters() {
   
   // Sync dropdown values
   const artistInput = document.getElementById("artist-filter-input");
+  const artistSelect = document.getElementById("artist-filter-dropdown");
   if (artistInput) {
     artistInput.value = activeArtistFilter || "";
+  } else if (artistSelect) {
+    artistSelect.value = activeArtistFilter || "all";
   }
 
   const songInput = document.getElementById("song-filter-input");
