@@ -1,0 +1,12 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+.idea/
+.vscode/
+.system_generated/
+walkthrough.md
+implementation_plan.md
+task.md
+deployment_checklist.md
+*.log

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Daily Calendar 2026</title>
+  <!-- Google Fonts for premium typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Link to visual styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- SIDEBAR (STATS & BRANDING) -->
+    <aside class="sidebar">
+      
+      <!-- BRAND & HEADLINE -->
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.586 14.424c-.18.295-.565.387-.86.207-2.377-1.454-5.37-1.783-8.894-.98-.336.075-.668-.135-.744-.47-.077-.337.135-.668.47-.743 3.856-.88 7.15-.51 9.822 1.13.296.18.387.563.206.857zm1.22-2.72c-.226.367-.707.487-1.074.26-2.72-1.672-6.87-2.157-10.075-1.183-.413.125-.847-.107-.972-.52-.125-.413.107-.847.52-.972 3.668-1.114 8.248-.574 11.39 1.358.368.226.488.708.26 1.075zm.105-2.81c-3.263-1.938-8.644-2.12-11.758-1.173-.5.15-1.025-.13-1.175-.63-.15-.5.13-1.026.63-1.176 3.618-1.1 9.57-.89 13.33 1.343.45.267.6.846.333 1.296-.266.45-.845.6-1.296.334z"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>Music Cal</h1>
+          <span>Year 2026</span>
+        </div>
+      </div>
+      
+      <!-- DATA SOURCE STATUS BADGE -->
+      <div class="status-badge">
+        <div id="status-dot" class="status-dot"></div>
+        <span id="status-text">Checking Source...</span>
+      </div>
+
+      <!-- DEMO MODE ADVISORY -->
+      <div id="demo-alert" class="demo-alert" style="display: none;">
+        <span><strong>Demo Preview Mode</strong></span>
+        <span>Could not fetch <code>playlist.json</code> directly (this is normal when opening the HTML file directly due to browser CORS policies).</span>
+        <span>Run <code>python data_fetch.py</code> and serve locally or deploy to GitHub Pages to view live data.</span>
+      </div>
+
+      <!-- DYNAMIC STATS -->
+      <div class="stats-section">
+        
+        <!-- STAT: TOTAL TRACKS -->
+        <div class="stat-card">
+          <span class="stat-label">Songs Tracked</span>
+          <div class="stat-value">
+            <span id="stat-songs-count">0</span>
+            <span class="total">/ <span id="stat-elapsed-days">365</span></span>
+          </div>
+          <div class="stat-progress-bar">
+            <div id="stat-songs-progress" class="stat-progress-fill"></div>
+          </div>
+          <span class="stat-subtext" id="stat-percentage-text">0% of days logged</span>
+        </div>
+
+        <!-- STAT: TOP 3 ARTISTS -->
+        <div class="stat-card">
+          <span class="stat-label">Top Artists</span>
+          <div class="top-artists-list" id="top-artists-list">
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">No artist data</div>
+          </div>
+        </div>
+
+        <!-- STAT: TOP GENRES (CONDITIONAL) -->
+        <div class="stat-card" id="genres-card" style="display: none;">
+          <span class="stat-label">Music Genres</span>
+          <div class="top-artists-list" id="top-genres-list">
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">No genre data</div>
+          </div>
+        </div>
+
+        <!-- STAT: SONG ERAS -->
+        <div class="stat-card">
+          <span class="stat-label">Song Eras</span>
+          <div class="top-artists-list" id="song-eras-list">
+            <div style="font-size: 0.8rem; color: var(--text-muted); font-style: italic;">No era data</div>
+          </div>
+        </div>
+
+        <!-- STAT: AVERAGE RELEASE YEAR -->
+        <div class="stat-card">
+          <span class="stat-label">Avg Release Year</span>
+          <div class="stat-value" id="stat-avg-year" style="font-size: 2rem; margin-top: 0.25rem; color: var(--spotify-green);">
+            -
+          </div>
+        </div>
+
+      </div>
+
+    </aside>
+
+    <!-- MAIN CALENDAR DISPLAY -->
+    <main class="main-content">
+      
+      <!-- CONTROLS & HEADER -->
+      <header class="content-header">
+        
+        <div class="header-title-area">
+          <h2>Daily Visualizer</h2>
+          <p>Your daily soundtrack roadmap for 2026</p>
+        </div>
+        
+        <div class="controls-wrapper">
+          <!-- Artist Filter Dropdown -->
+          <select id="artist-filter-dropdown" class="search-input" style="padding-left: 1.2rem; padding-right: 1.2rem; cursor: pointer; width: 180px;">
+            <option value="all">All Artists</option>
+          </select>
+
+          <!-- Language Filter Dropdown -->
+          <select id="language-filter-dropdown" class="search-input" style="padding-left: 1.2rem; padding-right: 1.2rem; cursor: pointer; width: 160px;">
+            <option value="all">All Languages</option>
+            <option value="english">English</option>
+            <option value="slavic">Balkan / Slavic</option>
+            <option value="latin">Spanish / Latin</option>
+            <option value="other">Other / Instrumental</option>
+          </select>
+
+          <!-- Clear Filters Button -->
+          <button id="clear-filters-btn" class="toggle-btn" style="background: rgba(255, 255, 255, 0.05); border: 1px solid var(--panel-border); display: none;">Clear Filters</button>
+
+          <!-- View Filter Toggle -->
+          <div class="view-toggle">
+            <button id="view-current-btn" class="toggle-btn active">Current View</button>
+            <button id="view-full-btn" class="toggle-btn">Full Year</button>
+          </div>
+        </div>
+
+      </header>
+
+      <!-- Calendar Grids Container -->
+      <div id="calendar-container" class="calendar-container">
+        <!-- Javascript will inject months here -->
+      </div>
+
+    </main>
+
+  </div>
+
+  <!-- FLOATING DETAIL CARD / TOOLTIP -->
+  <div id="tooltip" class="custom-tooltip">
+    <img id="tooltip-art" class="tooltip-art" src="" alt="Album Art">
+    <div class="tooltip-details">
+      <span id="tooltip-date" class="tooltip-date"></span>
+      <span id="tooltip-title" class="tooltip-title"></span>
+      <span id="tooltip-artist" class="tooltip-artist"></span>
+      <div id="tooltip-extra" style="font-size: 0.75rem; color: var(--text-muted); margin-top: 0.35rem; display: flex; gap: 0.4rem; flex-wrap: wrap; align-items: center;">
+        <span id="tooltip-year" style="background: rgba(255,255,255,0.08); padding: 0.1rem 0.4rem; border-radius: 4px; color: #fff;"></span>
+        <span id="tooltip-genres" style="color: var(--spotify-green); font-weight: 500;"></span>
+      </div>
+      <div style="font-size: 0.65rem; color: var(--spotify-green); margin-top: 0.5rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px;">➔ Click to open on Spotify</div>
+    </div>
+  </div>
+
+  <!-- APP FOOTER -->
+  <footer class="app-footer">
+    <p>Music Calendar &copy; 2026. Powered by Spotify API &bull; Automated Daily Visualizer</p>
+  </footer>
+
+  <!-- Link to application logic -->
+  <script src="script.js" defer></script>
+</body>
+</html>
