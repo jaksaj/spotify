@@ -172,7 +172,7 @@ def main():
         print("Please ensure they are set in your environment variables or local .env file.", file=sys.stderr)
         sys.exit(1)
         
-    playlist_id = "6mVP7PtJREfN6bOAIOErtI"
+    playlist_id = os.environ.get("PLAYLIST_ID", "6mVP7PtJREfN6bOAIOErtI")
     access_token = None
     
     # 2. Authenticate
