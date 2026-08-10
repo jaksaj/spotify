@@ -1888,5 +1888,23 @@
     "added_at": "2026-07-29",
     "release_date": "2016-09-19",
     "release_year": 2016
+  },
+  {
+    "title": "Nađi Novu Ljubav",
+    "artist": "Sasa Matic",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851c3399166e4a4d449b9acf3a1",
+    "spotify_url": "https://open.spotify.com/track/0IH4C1ulWXcFc9CARvarIY",
+    "added_at": "2026-07-30",
+    "release_date": "2015-02-08",
+    "release_year": 2015
+  },
+  {
+    "title": "Kad ljubav zakasni",
+    "artist": "Sasa Matic",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851909d0e215a65f64dc62f09a0",
+    "spotify_url": "https://open.spotify.com/track/1akkDIGdtXvVZmsz8ynW9t",
+    "added_at": "2026-07-31",
+    "release_date": "2014-07-11",
+    "release_year": 2014
   }
 ]
