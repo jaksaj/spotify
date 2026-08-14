@@ -1915,5 +1915,32 @@
     "added_at": "2026-08-01",
     "release_date": "2026-06-25",
     "release_year": 2026
+  },
+  {
+    "title": "Golden Days",
+    "artist": "Nerin",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851bd9f83caf5f60565538b63ec",
+    "spotify_url": "https://open.spotify.com/track/5V5YE9WScqAdg2tTeichuq",
+    "added_at": "2026-08-02",
+    "release_date": "2026-05-22",
+    "release_year": 2026
+  },
+  {
+    "title": "A Sky Full of Stars",
+    "artist": "Coldplay",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851e5a95573f1b91234630fd2cf",
+    "spotify_url": "https://open.spotify.com/track/0FDzzruyVECATHXKHFs9eJ",
+    "added_at": "2026-08-03",
+    "release_date": "2014-05-16",
+    "release_year": 2014
+  },
+  {
+    "title": "Di God Da Pođen",
+    "artist": "Hari Rončević",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851e7be198615050ed7467807ee",
+    "spotify_url": "https://open.spotify.com/track/5bdwHvJFOkvnr6wFQWMILq",
+    "added_at": "2026-08-04",
+    "release_date": "2013-03-27",
+    "release_year": 2013
   }
 ]
