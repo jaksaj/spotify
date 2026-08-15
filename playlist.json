@@ -1942,5 +1942,50 @@
     "added_at": "2026-08-04",
     "release_date": "2013-03-27",
     "release_year": 2013
+  },
+  {
+    "title": "Daljine",
+    "artist": "Adi Šoše, Sasa Matic",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851acc8ca7feda01b33e185d293",
+    "spotify_url": "https://open.spotify.com/track/51LCzMmkQhowOcZ8oyLlkm",
+    "added_at": "2026-08-05",
+    "release_date": "2026-08-14",
+    "release_year": 2026
+  },
+  {
+    "title": "Bolje nikad nego kasno",
+    "artist": "Sasa Matic",
+    "album_art": "https://i.scdn.co/image/ab67616d000048518f80b9e9ed6c7ca334f1b9ab",
+    "spotify_url": "https://open.spotify.com/track/6E6jISOkHoDvUf5nyOvf5E",
+    "added_at": "2026-08-06",
+    "release_date": "2025-04-06",
+    "release_year": 2025
+  },
+  {
+    "title": "Ne žuri, djevojčice",
+    "artist": "Oliver Dragojevic",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851c7e6bf216ac2afd8a1bca9d8",
+    "spotify_url": "https://open.spotify.com/track/4rYkC689VNtpOc711ElXix",
+    "added_at": "2026-08-07",
+    "release_date": "1978-01-01",
+    "release_year": 1978
+  },
+  {
+    "title": "Na Obali",
+    "artist": "Đani Maršan",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851ac7e0045ee77ebdad002aa45",
+    "spotify_url": "https://open.spotify.com/track/1h3OD344hBlSe6M2cVBtJI",
+    "added_at": "2026-08-08",
+    "release_date": "1996-01-01",
+    "release_year": 1996
+  },
+  {
+    "title": "I Want to Know What Love Is - 1999 Remaster",
+    "artist": "Foreigner",
+    "album_art": "https://i.scdn.co/image/ab67616d000048513e030a7e606959674643d274",
+    "spotify_url": "https://open.spotify.com/track/1JLn8RhQzHz3qDqsChcmBl",
+    "added_at": "2026-08-09",
+    "release_date": "1984",
+    "release_year": 1984
   }
 ]
