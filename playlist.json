@@ -1987,5 +1987,23 @@
     "added_at": "2026-08-09",
     "release_date": "1984",
     "release_year": 1984
+  },
+  {
+    "title": "Čovjek Zvani Činjenica",
+    "artist": "ZOSTER",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851f725faecd97f8f842d7e83f1",
+    "spotify_url": "https://open.spotify.com/track/6C8LdlPH3yRUXVw2dgF3a5",
+    "added_at": "2026-08-10",
+    "release_date": "2023-09-15",
+    "release_year": 2023
+  },
+  {
+    "title": "By By Baby By",
+    "artist": "Jinx",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485103a77d02404902dc7414a879",
+    "spotify_url": "https://open.spotify.com/track/54tXpjEjlpnf80RVtrnmPK",
+    "added_at": "2026-08-11",
+    "release_date": "1999-05-19",
+    "release_year": 1999
   }
 ]
