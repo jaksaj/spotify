@@ -2014,5 +2014,23 @@
     "added_at": "2026-08-12",
     "release_date": "2011-04-27",
     "release_year": 2011
+  },
+  {
+    "title": "Nismo Mi Bez Cilja",
+    "artist": "Josipa Lisac",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485113e28d9b6a6c52d140ac8467",
+    "spotify_url": "https://open.spotify.com/track/6C0eGDGLcDwQXb6iSPjSIF",
+    "added_at": "2026-08-13",
+    "release_date": "2007-06-20",
+    "release_year": 2007
+  },
+  {
+    "title": "You're Gonna Go Far, Kid",
+    "artist": "The Offspring",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851890ce61533a89e00ce593fcb",
+    "spotify_url": "https://open.spotify.com/track/6TfBA04WJ3X1d1wXhaCFVT",
+    "added_at": "2026-08-14",
+    "release_date": "2008-06-17",
+    "release_year": 2008
   }
 ]
