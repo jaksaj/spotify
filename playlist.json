@@ -2050,5 +2050,23 @@
     "added_at": "2026-08-16",
     "release_date": "2012",
     "release_year": 2012
+  },
+  {
+    "title": "vjerujem u nas",
+    "artist": "Adi Šoše",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851f476bea34ff30f853ff78259",
+    "spotify_url": "https://open.spotify.com/track/6yozbutc2tMBfX958yjea7",
+    "added_at": "2026-08-17",
+    "release_date": "2024-10-07",
+    "release_year": 2024
+  },
+  {
+    "title": "Angels Like You",
+    "artist": "Miley Cyrus",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851136d46f65c783bd9742dfc6d",
+    "spotify_url": "https://open.spotify.com/track/1daDRI9ahBonbWD8YcxOIB",
+    "added_at": "2026-08-18",
+    "release_date": "2020-11-27",
+    "release_year": 2020
   }
 ]
