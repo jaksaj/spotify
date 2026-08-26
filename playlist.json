@@ -2068,5 +2068,32 @@
     "added_at": "2026-08-18",
     "release_date": "2020-11-27",
     "release_year": 2020
+  },
+  {
+    "title": "Noć Mi Te Duguje",
+    "artist": "Zdravko Čolić",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851ce6c8a5c513d76df700c13c4",
+    "spotify_url": "https://open.spotify.com/track/2WylXcEyRT6NjT128RrZyW",
+    "added_at": "2026-08-19",
+    "release_date": "2012-01-01",
+    "release_year": 2012
+  },
+  {
+    "title": "Jolene",
+    "artist": "Dolly Parton",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851220f3b1f40e3276662155f16",
+    "spotify_url": "https://open.spotify.com/track/2SpEHTbUuebeLkgs9QB7Ue",
+    "added_at": "2026-08-20",
+    "release_date": "1974-02-04",
+    "release_year": 1974
+  },
+  {
+    "title": "Divno Je Biti Nekome Nešto",
+    "artist": "Latino",
+    "album_art": "https://i.scdn.co/image/ab67616d000048515449532fdbc8ffac0552ccae",
+    "spotify_url": "https://open.spotify.com/track/3YQB3A308rCw7LPvfmQ5qh",
+    "added_at": "2026-08-21",
+    "release_date": "2002-05-20",
+    "release_year": 2002
   }
 ]
