@@ -2113,5 +2113,77 @@
     "added_at": "2026-08-23",
     "release_date": "2020-01-20",
     "release_year": 2020
+  },
+  {
+    "title": "Maskara",
+    "artist": "Magazin",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851dee46667f76a5a196b5a2f33",
+    "spotify_url": "https://open.spotify.com/track/1aW4EHngSjNA7bNhE7Ssye",
+    "added_at": "2026-08-24",
+    "release_date": "2015-01-01",
+    "release_year": 2015
+  },
+  {
+    "title": "Muško bez karaktera",
+    "artist": "Magazin",
+    "album_art": "https://i.scdn.co/image/ab67616d000048517df40984b0a2df8ffe7cbda9",
+    "spotify_url": "https://open.spotify.com/track/0Ksz0WZH5y4rScSyRjmuwO",
+    "added_at": "2026-08-25",
+    "release_date": "2014-07-01",
+    "release_year": 2014
+  },
+  {
+    "title": "Sve Si Znala",
+    "artist": "Relja",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851bcaac6ab7af9b630bc6974fd",
+    "spotify_url": "https://open.spotify.com/track/3p9LTkCnA3D3b0H2BR3P3G",
+    "added_at": "2026-08-26",
+    "release_date": "2024-01-19",
+    "release_year": 2024
+  },
+  {
+    "title": "12xJanuar",
+    "artist": "Relja, Đana",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851c1b3983e6e686b6e47a6f9aa",
+    "spotify_url": "https://open.spotify.com/track/1E7zMtHnZvxyyUczlTpXiY",
+    "added_at": "2026-08-27",
+    "release_date": "2024-05-22",
+    "release_year": 2024
+  },
+  {
+    "title": "Olelole",
+    "artist": "Djordje Balasevic",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851d6a32adb6b56e7c30cb3f912",
+    "spotify_url": "https://open.spotify.com/track/0pm5PNQQzifYw0Vnr7xTgk",
+    "added_at": "2026-08-28",
+    "release_date": "1991-01-01",
+    "release_year": 1991
+  },
+  {
+    "title": "Sreco Ne Krivi Me",
+    "artist": "Toše Proeski",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485194a12314e61b8c7d2ac9abfc",
+    "spotify_url": "https://open.spotify.com/track/3Os7GYeIyxveT7PgwyRLVI",
+    "added_at": "2026-08-29",
+    "release_date": "2007",
+    "release_year": 2007
+  },
+  {
+    "title": "Reka",
+    "artist": "Tap 011",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851e3823f7eca8c2206a90ced08",
+    "spotify_url": "https://open.spotify.com/track/01rs7Prt9jXMHljjq0nsF5",
+    "added_at": "2026-08-30",
+    "release_date": "2022-04-04",
+    "release_year": 2022
+  },
+  {
+    "title": "Ulica Jorgovana",
+    "artist": "Darko Domijan",
+    "album_art": "https://i.scdn.co/image/ab67616d000048511e905a1d975b76e280e1ac95",
+    "spotify_url": "https://open.spotify.com/track/2NRcvIeCMXqkAXdsxjt9ac",
+    "added_at": "2026-08-31",
+    "release_date": "2012-01-19",
+    "release_year": 2012
   }
 ]
