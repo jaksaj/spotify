@@ -1919,7 +1919,7 @@
   {
     "title": "Golden Days",
     "artist": "Nerin",
-    "album_art": "https://i.scdn.co/image/ab67616d00004851bd9f83caf5f60565538b63ec",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851a12c70064539ae26f1d10379",
     "spotify_url": "https://open.spotify.com/track/5V5YE9WScqAdg2tTeichuq",
     "added_at": "2026-08-02",
     "release_date": "2026-05-22",
@@ -2185,5 +2185,14 @@
     "added_at": "2026-08-31",
     "release_date": "2012-01-19",
     "release_year": 2012
+  },
+  {
+    "title": "Gradske Cure",
+    "artist": "ITD band",
+    "album_art": "https://i.scdn.co/image/ab67616d000048515494cdb957124457b3c9a88e",
+    "spotify_url": "https://open.spotify.com/track/2LIaIoJtXru4BiO5mdbscX",
+    "added_at": "2026-09-01",
+    "release_date": "2006-01-15",
+    "release_year": 2006
   }
 ]
