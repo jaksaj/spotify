@@ -2194,5 +2194,23 @@
     "added_at": "2026-09-01",
     "release_date": "2006-01-15",
     "release_year": 2006
+  },
+  {
+    "title": "Babydoll",
+    "artist": "Dominic Fike",
+    "album_art": "https://i.scdn.co/image/ab67616d000048517b1b6f41c1645af9757d5616",
+    "spotify_url": "https://open.spotify.com/track/7yNf9YjeO5JXUE3JEBgnYc",
+    "added_at": "2026-09-02",
+    "release_date": "2018-10-16",
+    "release_year": 2018
+  },
+  {
+    "title": "Self Aware",
+    "artist": "Temper City",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851d6c26d2ae723f7ab553d64cc",
+    "spotify_url": "https://open.spotify.com/track/4qW3BbQAwZsrnu8a3ZRdyT",
+    "added_at": "2026-09-03",
+    "release_date": "2026-02-15",
+    "release_year": 2026
   }
 ]
