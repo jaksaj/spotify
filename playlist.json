@@ -2221,5 +2221,23 @@
     "added_at": "2026-09-04",
     "release_date": "2006-06-20",
     "release_year": 2006
+  },
+  {
+    "title": "Hani",
+    "artist": "Duško Kuliš",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851d4bb2951be9780fbc443fa1d",
+    "spotify_url": "https://open.spotify.com/track/0iMTNBnOHft0hCajWQwy80",
+    "added_at": "2026-09-05",
+    "release_date": "2001-01-01",
+    "release_year": 2001
+  },
+  {
+    "title": "Vukovi Umiru Sami",
+    "artist": "Boris Novković",
+    "album_art": "https://i.scdn.co/image/ab67616d000048514e2ecf4509a1380bd183808f",
+    "spotify_url": "https://open.spotify.com/track/2cxc09ns1mlKgtoSbfT7GK",
+    "added_at": "2026-09-06",
+    "release_date": "2013-05-20",
+    "release_year": 2013
   }
 ]
