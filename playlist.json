@@ -2239,5 +2239,23 @@
     "added_at": "2026-09-06",
     "release_date": "2013-05-20",
     "release_year": 2013
+  },
+  {
+    "title": "Zašto Me U Obraz Ljubiš",
+    "artist": "Tanja Savic",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485100f0cb5b8d9f994e76a6e19c",
+    "spotify_url": "https://open.spotify.com/track/2V8eVUiAxETCe0rAaIIAka",
+    "added_at": "2026-09-07",
+    "release_date": "2005",
+    "release_year": 2005
+  },
+  {
+    "title": "Bass Persuades",
+    "artist": "Miley Cyrus",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485140e583b55bdddcf70516fa6c",
+    "spotify_url": "https://open.spotify.com/track/2FZcjBYK4dTt48q94pJbJD",
+    "added_at": "2026-09-08",
+    "release_date": "2026-09-03",
+    "release_year": 2026
   }
 ]
