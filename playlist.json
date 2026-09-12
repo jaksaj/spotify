@@ -2266,5 +2266,23 @@
     "added_at": "2026-09-09",
     "release_date": "2008-06-02",
     "release_year": 2008
+  },
+  {
+    "title": "Još Ne Mogu Pristat Volit",
+    "artist": "Klapa Iskon",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485150123991926ab8457dbd7db0",
+    "spotify_url": "https://open.spotify.com/track/3ir4G7FdYTOcHWCAx8IEfs",
+    "added_at": "2026-09-10",
+    "release_date": "2011-12-20",
+    "release_year": 2011
+  },
+  {
+    "title": "Ultima Partenca",
+    "artist": "Klapa Cambi",
+    "album_art": "https://i.scdn.co/image/ab67616d000048513ec31afc3496ac96cb489e8e",
+    "spotify_url": "https://open.spotify.com/track/1wjfOhdZyUROl9X8qEpLFv",
+    "added_at": "2026-09-11",
+    "release_date": "2012-01-01",
+    "release_year": 2012
   }
 ]
