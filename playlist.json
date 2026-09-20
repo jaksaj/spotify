@@ -2284,5 +2284,59 @@
     "added_at": "2026-09-11",
     "release_date": "2012-01-01",
     "release_year": 2012
+  },
+  {
+    "title": "Dandelions",
+    "artist": "Ruth B.",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851b09403f05bc0c306cf96990f",
+    "spotify_url": "https://open.spotify.com/track/2eAvDnpXP5W0cVtiI0PUxV",
+    "added_at": "2026-09-12",
+    "release_date": "2017-05-05",
+    "release_year": 2017
+  },
+  {
+    "title": "Fever",
+    "artist": "Tom Jones",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851dd71ad0da65754955125904b",
+    "spotify_url": "https://open.spotify.com/track/7EagvqF1lFPqLg3CS50VKj",
+    "added_at": "2026-09-13",
+    "release_date": "2014-06-11",
+    "release_year": 2014
+  },
+  {
+    "title": "Hurricane",
+    "artist": "Misha Biork",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485121d2231b2604904f2f4513c9",
+    "spotify_url": "https://open.spotify.com/track/7FLG31RE92dejVoWVFXjeL",
+    "added_at": "2026-09-14",
+    "release_date": "2026-09-11",
+    "release_year": 2026
+  },
+  {
+    "title": "Why'd You Only Call Me When You're High?",
+    "artist": "Arctic Monkeys",
+    "album_art": "https://i.scdn.co/image/ab67616d000048514ae1c4c5c45aabe565499163",
+    "spotify_url": "https://open.spotify.com/track/086myS9r57YsLbJpU0TgK9",
+    "added_at": "2026-09-15",
+    "release_date": "2013-09-09",
+    "release_year": 2013
+  },
+  {
+    "title": "Ne dam da ovaj osjećaj ode",
+    "artist": "Crvena Jabuka",
+    "album_art": "https://i.scdn.co/image/ab67616d000048518d76ba523c4bfffb1ed99c84",
+    "spotify_url": "https://open.spotify.com/track/42Mfvuo99AlUGCQt10CI9v",
+    "added_at": "2026-09-16",
+    "release_date": "1989-01-01",
+    "release_year": 1989
+  },
+  {
+    "title": "Rockstar",
+    "artist": "Nickelback",
+    "album_art": "https://i.scdn.co/image/ab67616d000048518ad2adfa59683b9c8ace96c1",
+    "spotify_url": "https://open.spotify.com/track/3RlsVPIIs5KFhLFhxZ4iDF",
+    "added_at": "2026-09-17",
+    "release_date": "2005-09-26",
+    "release_year": 2005
   }
 ]
