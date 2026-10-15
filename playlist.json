@@ -2518,5 +2518,68 @@
     "added_at": "2026-10-07",
     "release_date": "1986-01-01",
     "release_year": 1986
+  },
+  {
+    "title": "Jugo 45",
+    "artist": "Zabranjeno pušenje",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851471efde30ca8a9e67f3e2fec",
+    "spotify_url": "https://open.spotify.com/track/1FDG4WVmabQeft2UP7cM27",
+    "added_at": "2026-10-08",
+    "release_date": "1999-06-05",
+    "release_year": 1999
+  },
+  {
+    "title": "Free Me",
+    "artist": "Odeal",
+    "album_art": "https://i.scdn.co/image/ab67616d0000485145d4adaa7df722b80a0bb0f7",
+    "spotify_url": "https://open.spotify.com/track/1dlX4os7LgUCPE6LLZ8DMt",
+    "added_at": "2026-10-09",
+    "release_date": "2024-07-05",
+    "release_year": 2024
+  },
+  {
+    "title": "Ljube se dobri, loši, zli",
+    "artist": "Magazin",
+    "album_art": "https://i.scdn.co/image/ab67616d000048517ebec953e669aa1b9544ee11",
+    "spotify_url": "https://open.spotify.com/track/0JUChF7CmXT0KOSdy32xvS",
+    "added_at": "2026-10-10",
+    "release_date": "1989-09-04",
+    "release_year": 1989
+  },
+  {
+    "title": "Heineken",
+    "artist": "Vuk Mob, Coby",
+    "album_art": "https://i.scdn.co/image/ab67616d000048517f4c362ae519fcdc48b87b39",
+    "spotify_url": "https://open.spotify.com/track/0uPAbqitiD11ioB161v5Xg",
+    "added_at": "2026-10-11",
+    "release_date": "2018-04-04",
+    "release_year": 2018
+  },
+  {
+    "title": "It's My Life",
+    "artist": "Bon Jovi",
+    "album_art": "https://i.scdn.co/image/ab67616d000048517a231174875d7930de9dad58",
+    "spotify_url": "https://open.spotify.com/track/0v1XpBHnsbkCn7iJ9Ucr1l",
+    "added_at": "2026-10-12",
+    "release_date": "2000-01-01",
+    "release_year": 2000
+  },
+  {
+    "title": "E Draga, Draga",
+    "artist": "Zdravko Čolić",
+    "album_art": "https://i.scdn.co/image/ab67616d00004851d3939c7b6d160a94e64df96b",
+    "spotify_url": "https://open.spotify.com/track/5czHgIQXj1OvYTPOqm7tnt",
+    "added_at": "2026-10-13",
+    "release_date": "1990-02-02",
+    "release_year": 1990
+  },
+  {
+    "title": "Sta bi prijatelji moji",
+    "artist": "Vlado Georgiev",
+    "album_art": "https://i.scdn.co/image/ab67616d000048510d5c606ae2b283a26792a731",
+    "spotify_url": "https://open.spotify.com/track/5huhp4iuA1xGmCaAN7MJFq",
+    "added_at": "2026-10-14",
+    "release_date": "2001-06-01",
+    "release_year": 2001
   }
 ]
